@@ -9,7 +9,7 @@
 コンセプトは「JAVAエンジニアのためのツール」であり、JAVAという言語のみに絞ったスコア化をすることで、他の能力可視化ツールとの差別化を図る。
 
 ## 発表資料
-[ダウンロード](/raw/main/成果発表会(pjintern-2020).pptx)
+[ダウンロード](https://github.com/moritaoy/PJ-intern-JavaREPOAnalyzer/blob/main/%E6%88%90%E6%9E%9C%E7%99%BA%E8%A1%A8%E4%BC%9A(pjintern-2020).pptx?raw=true)
 
 ## アピールポイント
 
