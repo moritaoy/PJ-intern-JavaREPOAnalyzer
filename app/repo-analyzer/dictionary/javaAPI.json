@@ -1,0 +1,19 @@
+{
+  "java.awt": "Graphic/UI",
+  "java.applet": "Web/Network",
+  "java.io": "Data",
+  "java.net": "Web/Network",
+  "java.nio": "Data",
+  "java.rmi": "Distribute",
+  "java.security": "Security",
+  "java.sql": "Database",
+  "java.util.logging": "Data",
+  "javax.crypto": "Security",
+  "javax.security": "Security",
+  "javax.sql": "Database",
+  "javax.swing": "Graphic/UI",
+  "javax.xml.crypto": "Security",
+  "javax.xml": "Data",
+  "org.w3c.dom": "Data"
+}
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>JavaREPO Analyzer</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.css}">
+<style type="text/css">
+<!--
+.top-b {
+	background-image: url("img/top.jpg");
+	background-position: bottom;
+	background-size: auto;
+}
+
+.container {
+	margin-bottom: 50px;
+}
+-->
+</style>
+
+<div class="bs-component">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand text-info" href="/">JavaREPO Analyzer</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarColor03" aria-controls="navbarColor03"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarColor03">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/">Home </a></li>
+				<li class="nav-item"><a class="nav-link" href="/user">ユーザースコア</a></li>
+				<li class="nav-item active"><a class="nav-link" href="/analyze">リポジトリ登録
+						<span class="sr-only">(current)</span>
+				</a></li>
+				</li>
+				</li>
+				</a>
+			</ul>
+			<form class="form-inline my-2 my-lg-0" action="/user" method="get">
+				<input class="form-control mr-sm-2" type="text"
+					placeholder="Github ID" name="ID">
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">スコア確認</button>
+			</form>
+		</div>
+	</nav>
+</div>
+</head>
+
+<body>
+
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="bs-component">
+					<div class="card mb-3">
+						<h3 class="card-header">リポジトリを登録</h3>
+						<div class="card-body">
+							<h5 class="card-title bb-3">Github 上のリポジトリを登録する</h5>
+							<h6 class="card-subtitle text-muted">対象のリポジトリのアドレスを用意してください。リポジトリはPublicである必要があります。</h6>
+							<p></p>
+							<p class="card-text"></p>
+							<p class="card-text text-muted">例)
+								https://github.com/moritaoy/hoge</p>
+							<p class="card-text">準備ができたら、以下にアドレスを入力して登録してください。</p>
+							<p class="card-text text-muted">必ず、例にあるとおりの形式のアドレスにしてください。これ以外のパラメータが入っている場合解析できません。</p>
+
+							<form class="form-inline my-2 my-lg-0" action="/analyze"
+								method="post">
+								<input class="form-control mr-sm-2" type="text" name="address"
+									placeholder="アドレス" th:value="${request_address}">
+								<button class="btn btn-secondary my-2 my-sm-0" type="submit">リポジトリ登録</button>
+							</form>
+						</div>
+
+						<div class="card-body border border-danger" th:if="${msg_warning}">
+							<h5 class="card-title bb-3">Error</h5>
+							<p></p>
+							<p class="card-text" th:text="${msg_warning}"></p>
+						</div>
+						<div class="card-body border border-success"
+							th:if="${msg_success}">
+							<h5 class="card-title bb-3">Success</h5>
+							<p></p>
+							<p class="card-text" th:text="${msg_success}"></p>
+						</div>
+
+						<div class="card-body">
+							<h5 class="card-title bb-3">登録された後は</h5>
+							<p></p>
+							<p class="card-text">解析の状況は、以下のページで確認できます</p>
+							<p class="card-text text-muted">あなたのGithubIDを入力してください</p>
+
+							<form class="form-inline my-2 my-lg-0" action="/user">
+								<input class="form-control mr-sm-2" type="text"
+									placeholder="Github ID" th:value="${request_userId}" name="ID">
+								<button class="btn btn-secondary my-2 my-sm-0" type="submit">スコア確認</button>
+							</form>
+
+							<p></p>
+							<p class="card-text">解析には小規模であれば数分、ファイル数が多い場合1時間ほどかかる場合があります。</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-copyright text-center py-3 bg-light">
+		© 2020 Copyright: <a href=""> JavaREPO analyzer</a>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script th:src="@{js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

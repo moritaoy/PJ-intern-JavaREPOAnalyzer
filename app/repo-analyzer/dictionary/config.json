@@ -1,0 +1,8 @@
+{
+  "javaAPI.json":{
+    "match": "top"
+  },
+  "library.json":{
+    "match": "all"
+  }
+}

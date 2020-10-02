@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>JavaREPO Analyzer</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.css}">
+<style type="text/css">
+<!--
+.top-b {
+	background-image: url("img/top.jpg");
+	background-position: bottom;
+	background-size: auto;
+}
+
+.container {
+	margin-bottom: 50px;
+}
+-->
+</style>
+
+<div class="bs-component">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand text-info" href="/">JavaREPO Analyzer</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarColor03" aria-controls="navbarColor03"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarColor03">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="/">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="/user">ユーザースコア</a></li>
+				<li class="nav-item"><a class="nav-link" href="/analyze">リポジトリ登録</a></li>
+				</li>
+				</li>
+				</a>
+			</ul>
+			<form class="form-inline my-2 my-lg-0" action="/user" method="get">
+				<input class="form-control mr-sm-2" type="text"
+					placeholder="Github ID" name="ID">
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">スコア確認</button>
+			</form>
+		</div>
+	</nav>
+</div>
+</head>
+
+<body>
+	<div
+		class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light top-b">
+		<div class="col-md-5 p-lg-5 mx-auto my-5 ">
+			<h1 class="display-4 font-weight-normal text-info">JavaREPO
+				Analyzer</h1>
+			<p class="lead font-weight-normal text-light">あなたのJAVAの開発経験をスコア化します</p>
+			<a class="btn btn-light btn-outline-secondary" href="/analyze">リポジトリ登録</a>
+			<a class="btn btn-light btn-outline-secondary" href="/user">スコア確認</a>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="bs-component">
+					<div class="card mb-3">
+						<h3 class="card-header">使い方</h3>
+						<div class="card-body">
+							<h5 class="card-title bb-3">1: Github上のリポジトリを登録する</h5>
+							<h6 class="card-subtitle text-muted">
+								あなたの<span class="text-danger">JAVAを使用している</span>リポジトリを登録しましょう
+							</h6>
+							<p></p>
+							<p class="card-text">対象のリポジトリのアドレスを用意してください。リポジトリはPublicである必要があります。</p>
+							<p class="card-text text-muted">例)
+								https://github.com/moritaoy/hoge</p>
+							<p class="card-text">準備ができたら、以下のページでリポジトリを登録してください。</p>
+
+							<a class="btn btn-info btn" href="/analyze" role="button">リポジトリ登録</a>
+						</div>
+						<div class="card-body">
+							<h5 class="card-title bb-3">2: 解析されるのを待つ</h5>
+							<h6 class="card-subtitle text-muted">サーバー上でリポジトリを解析します</h6>
+							<p></p>
+							<p class="card-text">解析の状況は、以下のページで確認できます</p>
+							<p class="card-text text-muted">あなたのGithubIDを入力してください</p>
+
+							<form class="form-inline my-2 my-lg-0" action="/user"
+								method="get">
+								<input class="form-control mr-sm-2" type="text"
+									placeholder="Github ID" name="ID">
+								<button class="btn btn-secondary my-2 my-sm-0" type="submit">スコア確認</button>
+							</form>
+
+							<p></p>
+							<p class="card-text">解析には小規模であれば数分、ファイル数が多い場合1時間ほどかかる場合があります。</p>
+						</div>
+						<div class="card-body">
+							<h5 class="card-title bb-3">3: 解析完了！</h5>
+							<h6 class="card-subtitle text-muted">先程のページであなたのリポジトリの解析結果とスコアが表示されます！</h6>
+							<p></p>
+							<p class="card-text">より高いスコアを目指しましょう！複数のリポジトリを登録することで、スコアは加算されます。</p>
+							<p class="card-text">あなたのスキルの指標に是非お使いください！</p>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-body">
+							<h4 class="card-title">複数人のスコアを比較</h4>
+							<h6 class="card-subtitle mb-2 text-muted">あなたのチームメンバーのスキルを比較できます</h6>
+							<p class="card-text">検索欄に空白区切りでチームメンバーのGithubIDを入力してください</p>
+							<p class="card-text">種類別でメンバーのスコアを比較できます</p>
+							<p class="card-text text-muted">それぞれのメンバーのリポジトリが登録されている必要があります</p>
+							<p class="card-text">役割分担や、メンバーの選抜等にご活用ください</p>
+							<p class="card-text text-muted">以下のページからも確認できます</p>
+							<a class="btn btn-info btn" href="/user" role="button">ユーザースコア</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="card mb-3">
+			<h3 class="card-header bg-warning text-white">注意事項</h3>
+			<div class="card-body border-left border-right border-warning">
+				<p class="card-text">当サイトで表示するスコアは、独自の指標を元に算出しています。</p>
+				<p class="card-text">必ずしもスコアの内容がユーザーの実力等を示しているとは限りません。</p>
+				<p class="card-text">あくまでも、指標の一つとしてお使いください。</p>
+			</div>
+			<div
+				class="card-body border-left border-right border-bottom border-warning ">
+				<p class="card-text">以下の場合、該当するファイルは解析されません。これにより、計算されるスコアが通常より低くなる場合があります。</p>
+				<p class="card-text">1ファイルで1MB以上の容量の場合、対象ファイルは解析されません。</p>
+				<p class="card-text">解析対象のファイルが3000を超える場合、3000個目以降のファイルは解析されません。</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-copyright text-center py-3 bg-light">
+		© 2020 Copyright: <a href=""> JavaREPO analyzer</a>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script th:src="@{js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
