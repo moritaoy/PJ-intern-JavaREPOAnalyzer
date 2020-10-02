@@ -41,6 +41,15 @@ JAVAを用いたアプリ開発は未経験であったが、メンターの方�
 ### 解析ロジック
 解析はPythonを用いてjavaコードの静的解析を行っている。
 
+解析結果として、以下の7種類に分けられたスコアが算出される。
+- Web/Network
+- Data
+- Database
+- Security
+- Mobile
+- Machinelerning
+- Graphic/UI
+
 解析、及びスコアの計算は以下の順序で行われる。
 - javaファイルをリストアップする
 - javaファイル内で使用されているライブラリをリストアップする
