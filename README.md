@@ -1,7 +1,7 @@
 # JavaREPOAnalyzer
 以下よりアクセスできます
 
-[JavaREPOAnalyzer](http://springboot-dev.eba-cxerme7m.ap-northeast-1.elasticbeanstalk.com)
+[JavaREPOAnalyzer](http://jra.judge-server.com/)
 
 ## 概要
 このツールを用いることで、Github上のJAVAを用いたリポジトリを解析し、スコア化することが出来る。
